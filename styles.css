@@ -1,0 +1,227 @@
+:root {
+    --text-colour: #00aa00;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrollbars if unnecessary */
+    font-family: "VT323", monospace;
+}
+
+#screen {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: #333;
+    display: flex; /* Centers content */
+    align-items: center;
+    justify-content: center;
+}
+
+#scanlines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 20%;
+}
+
+#bezel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.typing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 3;
+    font-size: 2vw;
+    color: var(--text-colour);
+}
+
+.typing p {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--text-colour);
+    animation: typing 3s steps(30, end), blink 0.5s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.content {
+    display: none; /* Hide content initially */
+    z-index: 3;
+    font-size: 2vw;
+    color: var(--text-colour);
+    text-align: center;
+    height: 100%; /* Ensure full height */
+    width: 100%;
+}
+
+.content.hidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.content.show {
+    display: block; /* Show content after splash */
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Flexbox Layout for the Containers */
+.container {
+    display: flex; /* Create side-by-side layout */
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    width: 80%; /* Adjust width to fit design */
+    max-width: 1200px; /* Limit max width for larger screens */
+    margin: 10rem auto 0 auto; /* Add 5rem space at the top */
+    gap: 10rem; /* Space between left and right containers */
+    padding-bottom: 100px;
+}
+
+
+/* Left Container */
+.left-container {
+    flex: 1; /* Takes up equal space */
+    text-align: left;
+}
+
+.left-container h1 {
+    font-size: 4vw; /* Larger font size for name */
+    margin: 0 0 1rem 0; /* Spacing below name */
+    word-spacing: -0.3em;
+}
+
+.left-container h2 {
+    font-size: 1.5vw; /* Larger font size for name */
+    margin: 0 0 1rem 0; /* Spacing below name */
+}
+
+.left-container p {
+    
+    font-size: 1.2vw; /* Smaller font size for description */
+    line-height: 1.5; /* Better readability */
+    opacity: 70%;
+
+}
+
+.left-container ul {
+    margin-top: 7rem;
+    list-style: none; /* Remove bullets */
+    padding: 0;
+    font-size: 1.2vw;
+}
+
+.left-container li {
+    margin-bottom: 1rem; /* Space between items */
+    cursor: pointer; /* Indicate clickable items */
+    transition: color 0.3s;
+}
+
+.left-container li:hover {
+    color: #00ff00; /* Change color on hover */
+}
+
+/* Right Container */
+.right-container {
+    flex: 1; /* Takes up equal space */
+    text-align: left; /* Align text to the left */
+    max-width: 100%; /* Ensure it doesn't extend too far */
+    margin: 0 auto; /* Center the content horizontally */
+    max-height: 80vh; /* Limit the height to 80% of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+    padding: 2rem; /* Add padding to prevent text from touching edges */
+    padding-bottom: 40%;
+    font-size: 1.2vw;
+    text-align: justify;
+    color: rgba(255, 255, 255, 0.85);
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+/* Optional: Customize the scrollbar appearance */
+.right-container::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.right-container::-webkit-scrollbar-thumb {
+    background: var(--text-colour); /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded edges for the scrollbar */
+}
+
+.right-container::-webkit-scrollbar-thumb:hover {
+    background: #00ff00; /* Change color on hover */
+}
+
+.right-container::-webkit-scrollbar-track {
+    background: #333; /* Color of the scrollbar track */
+}
+
+.right-container h1 {
+    font-size: 2vw; /* Larger font size for name */
+    margin: 0 0 1rem 0; /* Spacing below name */
+    word-spacing: -0.3em;
+    
+}
+
+/* Experience Section */
+.experience-container {
+    display: flex;
+    flex-direction: column; /* Stack boxes vertically */
+    gap: 2rem; /* Add space between the boxes */
+}
+
+.experience-box {
+    background-color: #444; /* Box background color */
+    color: var(--text-colour); /* Text color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    padding: 1.5rem; /* Internal spacing for the content */
+    width: 100%; /* Make the boxes fill the width of the right container */
+    text-align: left; /* Align text to the left */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+.experience-box:hover {
+    transform: translateY(-10px); /* Lift the box slightly */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.experience-box h2 {
+    margin-top: 0; /* Remove margin at the top */
+    font-size: 1.5rem; /* Adjust font size */
+    margin-bottom: 1rem; /* Space below the heading */
+}
+
+.experience-box p {
+    font-size: 1rem; /* Adjust paragraph font size */
+    line-height: 1.5; /* Better readability */
+    opacity: 0.9; /* Slight transparency for the text */
+}
