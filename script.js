@@ -3,8 +3,8 @@ const text = [
     "Welcome to my website!"
 ];
 
-const typingSpeed = 10; // Speed of typing (in milliseconds)
-const delayBetweenLines = 500; // Delay between lines
+const typingSpeed = 1000; // Speed of typing (in milliseconds)
+const delayBetweenLines = 1500; // Delay between lines
 let currentIndex = 0; // Tracks which line is being typed
 
 const typeText = (textArray, elementId, callback) => {
