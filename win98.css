@@ -1,0 +1,62 @@
+/* win98.css - minimal excerpt of 98.css, prefixed with .win98 */
+
+.win98 .window {
+    background-color: #c3c7cb;
+    border: 2px solid #000;
+    box-shadow: inset -1px -1px 0 1px #fff;
+    font-family: "Microsoft Sans Serif", sans-serif;
+    color: #000;
+    position: relative;
+  }
+  
+  .win98 .title-bar {
+    background: linear-gradient(to right, #000080, #0000a0);
+    color: #fff;
+    padding: 2px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: inset 1px 1px #fff, inset -1px -1px 0 1px #000;
+  }
+  
+  .win98 .title-bar-text {
+    margin-left: 2px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 11px;
+  }
+  
+  .win98 .title-bar-controls {
+    display: flex;
+    gap: 2px;
+  }
+  
+  .win98 .title-bar-controls button {
+    width: 16px;
+    height: 14px;
+    background-color: #c3c7cb;
+    border: none;
+    padding: 0;
+    box-shadow: inset 1px 1px #fff, inset -1px -1px 0 1px #000;
+    cursor: pointer;
+  }
+  
+  .win98 .title-bar-controls button:active {
+    box-shadow: inset -1px -1px 0 1px #fff, inset 1px 1px #000;
+  }
+  
+  .win98 .window-body {
+    background-color: #c3c7cb;
+    padding: 8px;
+    min-height: 100px;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  
+  
+
+  
+  

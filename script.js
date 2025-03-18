@@ -3,8 +3,8 @@ const text = [
     "Welcome to my website!"
 ];
 
-const typingSpeed = 10; // Speed of typing (in milliseconds)
-const delayBetweenLines = 500; // Delay between lines
+const typingSpeed = 80; // Speed of typing (in milliseconds)
+const delayBetweenLines = 200; // Delay between lines
 let currentIndex = 0; // Tracks which line is being typed
 
 const typeText = (textArray, elementId, callback) => {
@@ -60,3 +60,31 @@ const showContent = () => {
 window.onload = () => {
     typeText(text, "typed-text", showContent);
 };
+
+document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll('nav ul li a');
+    const rightContainer = document.querySelector('.right-container');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                // Calculate the top position of the target relative to the right container
+                // Adjust this offset to match the hidden top area (e.g., 100px)
+                const scrollOffset = 155; 
+
+                // Calculate the section’s position relative to the right container
+                const offsetTop = targetSection.offsetTop - scrollOffset;
+
+                // Smooth scroll
+                rightContainer.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+                
+                });
+            }
+        });
+    });
+});
