@@ -37,7 +37,7 @@ $(document).ready(function() {
       // For BumpLess and Photovoltaic Engineering, set a taller popup
       $popup.find('.window').css({
         width: '600px',
-        height: '670px'
+        height: '690px'
       });
     } else {
       // Default size for other popups
